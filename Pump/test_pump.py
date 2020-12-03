@@ -9,48 +9,50 @@ from signal import pause
 PUMP_GPIO_PIN = 2
 
 # create our pump "object"
-print('[INFO]: Create pump obj')
-p = pump.setup(PUMP_GPIO_PIN)
+print('[INFO]: Initialize the pump')
+pump.init(PUMP_GPIO_PIN)
 
 # check the pin
 print('[INFO]: Check pump pin')
-pump_pin = pump.pin(p)
+pump_pin = pump.pin()
 print('        Pump is set up to use pin: {pin}'.format(pin=pump_pin))
 
 # prime the pump (seconds)
 print('[INFO]: Prime pump')
 PRIME_TIME = 10
-pump.prime(p, PRIME_TIME)
+pump.prime(PRIME_TIME)
 
 # test on / off / toggle
 print('[INFO]: Pump ON')
-pump.on(p)
+pump.on()
 sleep(3)
 print('[INFO]: Pump OFF')
-pump.off(p)
+pump.off()
 sleep(3)
 print('[INFO]: Pump Toggle (ON)')
-pump.toggle(p)
+pump.toggle()
 sleep(3)
 print('[INFO]: Pump Toggle (OFF)')
-pump.toggle(p)
+pump.toggle()
 sleep(10)
 
 # test pump states
 print('[INFO]: Pump Toggle (ON)')
-pump.toggle(p)
-active = pump.is_active(p)
-state = pump.state(p)
+pump.toggle()
+active = pump.is_active()
+state = pump.state()
 print('        Pump is active: {active}'.format(active=active))
 print('        Pump is active: {state}'.format(state=state))
 sleep(3)
 
 print('[INFO]: Pump Toggle (OFF)')
-pump.toggle(p)
-active = pump.is_active(p)
-state = pump.state(p)
+pump.toggle()
+active = pump.is_active()
+state = pump.state()
 print('        Pump is active: {active}'.format(active=active))
 print('        Pump is active: {state}'.format(state=state))
 
 print('[INFO]: Pump OFF')
-pump.off(p)
+pump.off()
+
+pump.cleanup()
