@@ -6,7 +6,7 @@ from time import sleep
 from signal import pause
 
 # Change GPIO Pin here
-PUMP_GPIO_PIN = 2
+PUMP_GPIO_PIN = 25
 
 # create our pump "object"
 print('[INFO]: Initialize the pump')
@@ -21,6 +21,9 @@ print('        Pump is set up to use pin: {pin}'.format(pin=pump_pin))
 print('[INFO]: Prime pump')
 PRIME_TIME = 10
 pump.prime(PRIME_TIME)
+print('[INFO]: Pump OFF')
+pump.off()
+sleep(3)
 
 # test on / off / toggle
 print('[INFO]: Pump ON')

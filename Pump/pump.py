@@ -6,7 +6,7 @@ import RPi.GPIO as GPIO
 import time
 
 # declare pump pin
-PUMP_PIN = 2
+PUMP_PIN = 25
 
 #Set the GPIO port to BCM encoding mode.
 GPIO.setmode(GPIO.BCM)
